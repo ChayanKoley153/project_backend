@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import { User } from "../Models/User.js";
 
 export const Authenticated = async (req, res, next) => {
-  const token = req.header("Auth");
+  const token = req.header("token");
 
   if (!token) return res.json({ message: "Login first" });
 
@@ -17,5 +17,4 @@ export const Authenticated = async (req, res, next) => {
   req.user = user;
   next();
 
-  // console.log(decoded)
 };
